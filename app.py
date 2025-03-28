@@ -71,12 +71,14 @@ with tab2:
 
         # Loop through each story
         for _, story in stories_df.sort_values(by='Date', ascending=False).iterrows():
-          story_id = int(story.get("StoryID", 0))
+            story_id = int(story.get("StoryID", 0))
+    
             st.markdown(f"""<div class='story-box'>
-            <b>Anonymous:</b> {story['Username']}<br>
-            <i>🕰 {story['Date']}</i><br><br>
-            {story['Story']}
-            </div>""", unsafe_allow_html=True)
+        <b>Anonymous:</b> {story['Username']}<br>
+        <i>🕰 {story['Date']}</i><br><br>
+        {story['Story']}
+        </div>""", unsafe_allow_html=True)
+
 
             # Likes
             likes = int(likes_df[likes_df["StoryID"] == story_id]["Likes"].values[0]) if story_id in likes_df["StoryID"].values else 0
