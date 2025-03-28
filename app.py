@@ -71,7 +71,7 @@ with tab2:
 
         # Loop through each story
         for _, story in stories_df.sort_values(by='Date', ascending=False).iterrows():
-            story_id = int(story["StoryID"])
+          story_id = int(story.get("StoryID", 0))
             st.markdown(f"""<div class='story-box'>
             <b>Anonymous:</b> {story['Username']}<br>
             <i>🕰 {story['Date']}</i><br><br>
